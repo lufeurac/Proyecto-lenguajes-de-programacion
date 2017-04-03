@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="car.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3919">
+      <stop
+         style="stop-color:#000080;stop-opacity:1;"
+         offset="0"
+         id="stop3921" />
+      <stop
+         style="stop-color:#000080;stop-opacity:0;"
+         offset="1"
+         id="stop3923" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3909">
+      <stop
+         style="stop-color:#4d4d4d;stop-opacity:1;"
+         offset="0"
+         id="stop3911" />
+      <stop
+         style="stop-color:#4d4d4d;stop-opacity:0;"
+         offset="1"
+         id="stop3913" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3899">
+      <stop
+         style="stop-color:#4d4d4d;stop-opacity:1;"
+         offset="0"
+         id="stop3901" />
+      <stop
+         style="stop-color:#4d4d4d;stop-opacity:0;"
+         offset="1"
+         id="stop3903" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3899"
+       id="linearGradient3905"
+       x1="361.12955"
+       y1="493.24274"
+       x2="378.80719"
+       y2="493.24274"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3899"
+       id="linearGradient3907"
+       x1="361.12955"
+       y1="493.24274"
+       x2="378.80719"
+       y2="493.24274"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3909"
+       id="linearGradient3915"
+       x1="381.83768"
+       y1="496.77829"
+       x2="432.34528"
+       y2="496.77829"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3909"
+       id="linearGradient3917"
+       x1="381.83768"
+       y1="496.77829"
+       x2="432.34528"
+       y2="496.77829"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3919"
+       id="linearGradient3925"
+       x1="292.94424"
+       y1="468.49402"
+       x2="536.39099"
+       y2="469.50415"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.959798"
+     inkscape:cx="387.09718"
+     inkscape:cy="538.72397"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1680"
+     inkscape:window-height="989"
+     inkscape:window-x="1680"
+     inkscape:window-y="90"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.93962866"
+       id="rect3024-8"
+       width="18.243116"
+       height="10.666972"
+       x="353.77573"
+       y="445.73541"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.93962866"
+       id="rect3024-5"
+       width="18.243116"
+       height="10.666972"
+       x="387.36331"
+       y="445.48285"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.93962866"
+       id="rect3024-9"
+       width="18.243116"
+       height="10.666972"
+       x="387.36331"
+       y="490.18213"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.93962866"
+       id="rect3024"
+       width="18.243116"
+       height="10.666972"
+       x="353.77576"
+       y="490.43463"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#aa4400;fill-opacity:1;stroke:#000000;stroke-width:0.48620753999999999"
+       id="rect3811"
+       width="2.8707304"
+       height="4.3694649"
+       x="361.8923"
+       y="455.84009"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#aa4400;fill-opacity:1;stroke:#000000;stroke-width:0.48620753999999999"
+       id="rect3811-6"
+       width="2.8707304"
+       height="4.3694649"
+       x="396.23065"
+       y="455.84012"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#aa4400;fill-opacity:1;stroke:#000000;stroke-width:0.48620753999999999"
+       id="rect3811-5"
+       width="2.8707304"
+       height="4.3694649"
+       x="396.45148"
+       y="486.15326"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#aa4400;fill-opacity:1;stroke:#000000;stroke-width:0.48620753999999999"
+       id="rect3811-9"
+       width="2.8707304"
+       height="4.3694649"
+       x="362.88602"
+       y="486.15326"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       sodipodi:type="arc"
+       style="fill:#0000ff;fill-opacity:1;stroke:#000000"
+       id="path3865"
+       sodipodi:cx="131.57237"
+       sodipodi:cy="446.27066"
+       sodipodi:rx="12.374369"
+       sodipodi:ry="27.779196"
+       d="m 143.94674,446.27066 a 12.374369,27.779196 0 1 1 -24.74874,0 12.374369,27.779196 0 1 1 24.74874,0 z"
+       transform="matrix(0.657226,0,0,0.49477301,318.25965,252.65182)"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect3022"
+       width="52.275394"
+       height="27.779194"
+       x="353.04831"
+       y="459.40265"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:url(#linearGradient3925);fill-rule:evenodd;stroke:#000000;stroke-width:0.62395990000000001px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       id="rect2985"
+       width="51.716984"
+       height="27.653912"
+       x="353.72073"
+       y="459.52127"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:url(#linearGradient3907);fill-opacity:1;stroke:#4d4d4d"
+       id="rect2987"
+       width="17.488482"
+       height="10.813873"
+       x="354.28339"
+       y="445.73425"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:url(#linearGradient3917);fill-opacity:1;stroke:#4d4d4d"
+       id="rect2987-8"
+       width="17.488482"
+       height="10.813873"
+       x="388.01117"
+       y="445.73425"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:url(#linearGradient3905);fill-opacity:1;stroke:#4d4d4d"
+       id="rect2987-1"
+       width="17.488482"
+       height="10.813873"
+       x="354.28339"
+       y="490.14835"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:url(#linearGradient3915);fill-opacity:1;stroke:#4d4d4d"
+       id="rect2987-6"
+       width="17.488482"
+       height="10.813873"
+       x="388.01117"
+       y="490.14835"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#e6e6e6;stroke:#000000;stroke-width:0.48620754"
+       id="rect3021"
+       width="6.0897393"
+       height="18.344963"
+       x="389.36749"
+       y="464.17575"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#e6e6e6;stroke:#000000;stroke-width:0.48620754"
+       id="rect3021-0"
+       width="6.0897393"
+       height="18.344963"
+       x="362.74442"
+       y="464.17575"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="fill:#3f3fc8;fill-opacity:1;stroke:#000000;stroke-width:0.48620754"
+       id="rect3041"
+       width="21.236013"
+       height="17.379438"
+       x="368.59995"
+       y="464.65851"
+       inkscape:export-filename="/home/jpavlich/workspace-PL/BasicProject/images/car.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>
