@@ -1,0 +1,8 @@
+color 23,123,0,255
+run_forward 50
+turn_left 90
+color 255,255,255,255
+run_forward 100
+turn_left 75
+color 0,255,0,255
+run_forward 50
