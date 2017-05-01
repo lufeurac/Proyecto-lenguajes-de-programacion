@@ -7,7 +7,12 @@
 grammar Car;
 
 @header{
+  import java.util.Map;
+  import java.util.HashMap;
+  import java.util.List;
+  import java.util.ArrayList;
   import co.edu.javeriana.car.*;
+  import co.edu.javeriana.car.ast.*;
   import co.edu.javeriana.interpreter.*;
 }
 
@@ -21,64 +26,147 @@ grammar Car;
 }
 
 start:
-	sentence*
+	{
+		List<ASTNode> body = new ArrayList<ASTNode>();
+		Map<String, Object> symbol_table = new HashMap<String,Object>();		
+	}
+	(sentence {body.add($sentence.node);})*
+	{
+		for (ASTNode n : body) 
+		{
+			n.execute(symbol_table);
+		}
+	}
+		
 ;
 
-sentence:
-	cmd_color | cmd_mf | cmd_mb | cmd_tr | cmd_tl
+sentence returns [ASTNode node]:
+	cmd_color {$node = $cmd_color.node;}|
+	cmd_mf {$node = $cmd_mf.node;}		|
+	cmd_bk {$node = $cmd_bk.node;}		|
+	cmd_tl {$node = $cmd_tl.node;}		|
+	cmd_tr {$node = $cmd_tr.node;}		|
+	print_ln {$node = $print_ln.node;}	|
+	conditional {$node = $conditional.node;}|
+	expression {$node = $expression.node;}|
+	var_decl {$node = $var_decl.node;} |
+	var_assign {$node = $var_assign.node;}
 ;
 
-var_decl: 
-	LET ID
+var_decl returns [ASTNode node]: 
+	LET ID {$node = new Var_decl($ID.text);}
 ;
 
-var_assign:
-	ID ASSING NUMBER 
+var_assign returns [ASTNode node]:
+	ID ASSING expression {$node = new Var_assign($ID.text, $expression.node);}
 ;
 
-print_ln:
-	WRLN NUMBER | STRING | BOOLEAN | ID
+print_ln returns [ASTNode node]:
+	WRLN sentence
+	{
+		$node = new PrintLn($sentence.node);
+	}
+; 
+
+cmd_color returns [ASTNode node]: 
+	COLOR r=input COMMA g=input COMMA b=input COMMA a=input
+	{
+		$node = new Set_color(car, $r.node, $g.node, $b.node, $a.node);
+	}
+;
+	
+cmd_mf returns [ASTNode node]:
+	FW t1=input
+	{
+		$node = new Cmd_mf(car, $t1.node);
+	}
 ;
 
-cmd_color: 
-	COLOR r=number COMMA g=number COMMA b=number COMMA a=number
+cmd_bk returns [ASTNode node]:
+	BK t1=input
 	{
-		System.out.println("El carro usa el color " + $r.text + "," + $g.text + "," + $b.text + "," + $a.text);
-		car.color($r.value,$g.value,$b.value,$a.value);
+		$node = new Cmd_bk(car, $t1.node);
 	}
 ;
-cmd_mf:
-	FW n=number
+
+cmd_tl returns [ASTNode node]:
+	TL t1=input
 	{
-		System.out.println("El carro avanza "+ $n.value + " unidades");
-		car.forward($n.value);
+		$node = new Cmd_tl(car, $t1.node);
 	}
 ;
-cmd_mb: 
-	BK n=number
+
+cmd_tr returns [ASTNode node]:
+	TR t1=input
 	{
-		System.out.println("El carro retrocede "+ $n.value + " unidades");
-		car.back($n.value);
+		$node = new Cmd_tr(car, $t1.node);
 	}
 ;
-cmd_tr:
-	TR n=number
+
+conditional returns [ASTNode node]:
+	IF PAO expression PAC 
 	{
-		System.out.println("El carro gira " + $n.value + " unidades a la derecha");
-		car.right($n.value);
+		List<ASTNode> body = new ArrayList<ASTNode>();		
+	}
+	BOP (t1=sentence { body.add($t1.node);})* BCL
+	ELSE
+	{
+		List<ASTNode> elseBody = new ArrayList<ASTNode>();		
+	}
+	BOP (t2=sentence { elseBody.add($t2.node);})* BCL
+	{
+		$node = new If_cond($expression.node, body, elseBody);
 	}
 ;
-cmd_tl:
-	TL n=number
-	{
-		System.out.println("El carro gira " + $n.value + " unidades a la izquierda");
-		car.left($n.value);
-	}
+
+log_op returns [ASTNode node]:
+//	t1=booleanify OR t2=booleanify {$node = new Or($t1.node, $t2.node);}|
+//	t1=booleanify AND t2=booleanify {$node = new And($t1.node, $t2.node);}|
+//	NOT booleanify {$node = new Not($booleanify.node);}|
+//	booleanify {$node = $booleanify.node;}
 ;
-input returns [Object value]:
-	NUMBER {$value = Float.parseFloat($NUMBER.text);} |
-	ID {$value = $ID.text;	} |
-	STRING {$value = ($STRING.text);} 
+	
+
+booleanify returns [ASTNode node]:
+	t1=expression LT  t2=expression {$node = new Lt_comp($t1.node, $t2.node);}|
+	t1=expression LOE t2=expression {$node = new Loe_comp($t1.node, $t2.node);}|
+	t1=expression GT  t2=expression {$node = new Gt_comp($t1.node, $t2.node);}|
+	t1=expression GOE t2=expression {$node = new Goe_comp($t1.node, $t2.node);}|
+	t1=expression EQ  t2=expression {$node = new Eq_comp($t1.node, $t2.node);}|
+	t1=expression NEQ t2=expression {$node = new Neq_comp($t1.node, $t2.node);}
+;
+
+expression returns [ASTNode node]:
+	t1=exp_sub {$node = $t1.node;}
+		(PLUS t2=exp_sub{$node = new Op_sum($node, $t2.node);})* 
+;
+
+exp_sub returns [ASTNode node]:
+	t1=exp_mult {$node = $t1.node;}
+		(MINUS t2=exp_mult{$node = new Op_sub($node, $t2.node);})*
+;
+
+exp_mult returns [ASTNode node]:
+	t1=exp_div {$node = $t1.node;}
+		(MULT t2=exp_div{$node = new Op_mult($node, $t2.node);})*
+;
+
+exp_div returns [ASTNode node]:
+	t1=exp_inv {$node = $t1.node;}
+		(DIV t2=exp_inv{$node = new Op_div($node, $t2.node);})*
+;
+
+exp_inv returns [ASTNode node]:
+	t1=input {$node = $t1.node;} |
+		(MINUS t2=input{$node = new Op_inv($t2.node);})
+;
+
+input returns [ASTNode node]:
+	NUMBER {$node = new Constant(Float.parseFloat($NUMBER.text));} 		|
+	ID {$node = new Var_ref($ID.text);}		|
+	STRING {$node = new Constant($STRING.text);}		|
+	BOOLEAN {$node = new Constant(Boolean.parseBoolean($BOOLEAN.text));}	|
+	PAO expression {$node = $expression.node;} PAC
 	
 ;
 

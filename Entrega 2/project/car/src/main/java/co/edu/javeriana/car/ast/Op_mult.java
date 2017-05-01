@@ -1,5 +1,7 @@
 package co.edu.javeriana.car.ast;
 
+import java.util.Map;
+
 public class Op_mult implements ASTNode {
 	private ASTNode termino1;
 	private ASTNode termino2;
@@ -13,8 +15,8 @@ public class Op_mult implements ASTNode {
 
 
 	@Override
-	public Object execute() {
-		return (float)termino1.execute() * (float)termino2.execute();
+	public Object execute(Map<String, Object> symbol_table) {
+		return (float)termino1.execute(symbol_table) * (float)termino2.execute(symbol_table);
 	}
 
 }

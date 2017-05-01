@@ -1,1 +1,7 @@
-writeln 2
+let x
+x = 2
+writeln x
+writeln 2+-2
+writeln -(2+2)/2
+writeln (3/2)*8
+writeln -5
