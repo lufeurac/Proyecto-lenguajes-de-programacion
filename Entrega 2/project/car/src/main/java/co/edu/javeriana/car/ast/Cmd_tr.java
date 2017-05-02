@@ -1,6 +1,4 @@
 package co.edu.javeriana.car.ast;
-import java.util.Map;
-
 import co.edu.javeriana.car.Car;
 
 public class Cmd_tr implements ASTNode
@@ -16,9 +14,9 @@ public class Cmd_tr implements ASTNode
 	}
 	
 	@Override
-	public Object execute(Map<String, Object> symbol_table)
+	public Object execute(Code_block segment)
 	{
-		car.right((float)amount.execute(symbol_table));
+		car.right((float)amount.execute(segment));
 		return null;
 	}
 

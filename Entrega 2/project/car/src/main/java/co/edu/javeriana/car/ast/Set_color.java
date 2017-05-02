@@ -1,6 +1,4 @@
 package co.edu.javeriana.car.ast;
-import java.util.Map;
-
 import co.edu.javeriana.car.Car;
 
 public class Set_color implements ASTNode 
@@ -22,12 +20,12 @@ public class Set_color implements ASTNode
 		this.alpha = alpha;
 	}
 
-	public Object execute(Map<String, Object> symbol_table) 
+	public Object execute(Code_block segment) 
 	{
-		car.color((float)red.execute(symbol_table),
-				(float)green.execute(symbol_table),
-				(float)blue.execute(symbol_table),
-				(float)alpha.execute(symbol_table));
+		car.color((float)red.execute(segment),
+				(float)green.execute(segment),
+				(float)blue.execute(segment),
+				(float)alpha.execute(segment));
 		return null;
 	}
 

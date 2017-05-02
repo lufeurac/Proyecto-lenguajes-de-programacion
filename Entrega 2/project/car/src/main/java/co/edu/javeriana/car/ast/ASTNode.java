@@ -1,7 +1,5 @@
 package co.edu.javeriana.car.ast;
 
-import java.util.Map;
-
 public interface ASTNode {
-	public Object execute(Map<String, Object> symbol_table);
+	public Object execute(Code_block segment);
 }

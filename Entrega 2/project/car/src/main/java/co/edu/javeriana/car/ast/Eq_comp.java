@@ -1,7 +1,5 @@
 package co.edu.javeriana.car.ast;
 
-import java.util.Map;
-
 public class Eq_comp implements ASTNode {
 
 	private ASTNode termino1;
@@ -15,7 +13,7 @@ public class Eq_comp implements ASTNode {
 	}
 
 	@Override
-	public Object execute(Map<String, Object> symbol_table) {
-		return termino1.execute(symbol_table).equals(termino2.execute(symbol_table));
+	public Object execute(Code_block segment) {
+		return termino1.execute(segment).equals(termino2.execute(segment));
 	}
 }

@@ -1,7 +1,5 @@
 package co.edu.javeriana.car.ast;
 
-import java.util.Map;
-
 public class Constant implements ASTNode {
 
 	private Object value;
@@ -12,7 +10,7 @@ public class Constant implements ASTNode {
 	}
 
 	@Override
-	public Object execute(Map<String, Object> symbol_table) 
+	public Object execute(Code_block segment) 
 	{		
 		return value;
 	}

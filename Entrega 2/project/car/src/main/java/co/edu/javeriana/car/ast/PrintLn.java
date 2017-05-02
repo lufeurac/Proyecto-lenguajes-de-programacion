@@ -1,7 +1,5 @@
 package co.edu.javeriana.car.ast;
 
-import java.util.Map;
-
 public class PrintLn implements ASTNode {
 	private ASTNode termino;
 	
@@ -11,8 +9,16 @@ public class PrintLn implements ASTNode {
 	}
 
 	@Override
-	public Object execute(Map<String, Object> symbol_table) {
-		System.out.println(termino.execute(symbol_table));
+	public Object execute(Code_block segment) {
+//		if(termino.execute(symbol_table).equals("#t"))
+//		{
+//			System.out.println("true");
+//		}
+//		else
+//		{
+//			System.out.println("false");
+//		}
+		System.out.println(termino.execute(segment));
 		return null;
 	}
 

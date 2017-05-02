@@ -1,7 +1,5 @@
 package co.edu.javeriana.car.ast;
 
-import java.util.Map;
-
 public class Op_inv implements ASTNode {
 	private ASTNode termino;
 	
@@ -11,7 +9,7 @@ public class Op_inv implements ASTNode {
 	}
 
 	@Override
-	public Object execute(Map<String, Object> symbol_table) {
-		return (float)termino.execute(symbol_table) * -1;
+	public Object execute(Code_block segment) {
+		return (float)termino.execute(segment) * -1;
 	}
 }

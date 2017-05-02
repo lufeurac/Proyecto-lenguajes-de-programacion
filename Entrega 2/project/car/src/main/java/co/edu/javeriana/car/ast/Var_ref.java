@@ -1,7 +1,5 @@
 package co.edu.javeriana.car.ast;
 
-import java.util.Map;
-
 public class Var_ref implements ASTNode {
 
 	private String var_name;
@@ -14,9 +12,9 @@ public class Var_ref implements ASTNode {
 
 
 	@Override
-	public Object execute(Map<String, Object> symbol_table) 
+	public Object execute(Code_block segment) 
 	{
-		return symbol_table.get(var_name);
+		return segment.get(var_name);
 	}
 
 }

@@ -2,7 +2,7 @@
  * Pontificia Universidad Javeriana
  * Luis Felipe Urdaneta Acevedo
  * Lenguajes de programacion 2017-01
- * Entrega #1
+ * Entrega #2
 */
 grammar Car;
 
@@ -28,37 +28,41 @@ grammar Car;
 start:
 	{
 		List<ASTNode> body = new ArrayList<ASTNode>();
-		Map<String, Object> symbol_table = new HashMap<String,Object>();		
+		Code_block segment = new Code_block();		
 	}
 	(sentence {body.add($sentence.node);})*
 	{
 		for (ASTNode n : body) 
 		{
-			n.execute(symbol_table);
+			n.execute(segment);
 		}
-	}
-		
+	}		
 ;
 
 sentence returns [ASTNode node]:
+	var_decl {$node = $var_decl.node;} |
+	print_ln {$node = $print_ln.node;}	|
+	var_assign {$node = $var_assign.node;}|
 	cmd_color {$node = $cmd_color.node;}|
 	cmd_mf {$node = $cmd_mf.node;}		|
 	cmd_bk {$node = $cmd_bk.node;}		|
 	cmd_tl {$node = $cmd_tl.node;}		|
 	cmd_tr {$node = $cmd_tr.node;}		|
-	print_ln {$node = $print_ln.node;}	|
 	conditional {$node = $conditional.node;}|
-	expression {$node = $expression.node;}|
-	var_decl {$node = $var_decl.node;} |
-	var_assign {$node = $var_assign.node;}
+	repeat_this_stuff {$node = $repeat_this_stuff.node;}|
+	function {$node = $function.node;}|
+	function_call {$node = $function_call.node;}|
+	log_op {$node = $log_op.node;}|
+	expression {$node = $expression.node;}
 ;
 
 var_decl returns [ASTNode node]: 
-	LET ID {$node = new Var_decl($ID.text);}
+	LET ID {$node = new Var_decl($ID.text);} |
+	LET ID ASSING expression {$node = new Var_assign($ID.text, $expression.node);}
 ;
 
 var_assign returns [ASTNode node]:
-	ID ASSING expression {$node = new Var_assign($ID.text, $expression.node);}
+	ID ASSING (expression {$node = new Var_assign($ID.text, $expression.node);})+
 ;
 
 print_ln returns [ASTNode node]:
@@ -104,7 +108,7 @@ cmd_tr returns [ASTNode node]:
 ;
 
 conditional returns [ASTNode node]:
-	IF PAO expression PAC 
+	IF PAO log_op PAC 
 	{
 		List<ASTNode> body = new ArrayList<ASTNode>();		
 	}
@@ -115,25 +119,71 @@ conditional returns [ASTNode node]:
 	}
 	BOP (t2=sentence { elseBody.add($t2.node);})* BCL
 	{
-		$node = new If_cond($expression.node, body, elseBody);
+		$node = new Ife_cond($log_op.node, body, elseBody);
+	} 
+	|
+	IF PAO log_op PAC 
+	{
+		List<ASTNode> body = new ArrayList<ASTNode>();		
+	}
+	BOP (t1=sentence { body.add($t1.node);})* BCL
+	{
+		$node = new If_cond($log_op.node, body);		
 	}
 ;
 
+repeat_this_stuff returns [ASTNode node]:
+	WHILE PAO (log_op)+ PAC
+	{
+		List<ASTNode> body = new ArrayList<ASTNode>();
+	}
+	BOP (sentence {body.add($sentence.node);})* BCL
+	{
+		$node = new While($log_op.node, body);
+	}
+;
+
+function returns [ASTNode node]: 
+	 FUNC fun_name = ID PAO
+	 {
+		List<ASTNode> body = new ArrayList<ASTNode>();
+		List<String> parameters = new ArrayList<String>();
+	 }
+	 ((ID {parameters.add($ID.text);})?)((COMMA (ID {parameters.add($ID.text);}))*)	
+	 PAC 
+	 BOP (sentence {body.add($sentence.node);})* BCL
+	 {
+		$node = new New_func($fun_name.text, body, parameters);
+	 }
+;
+
+function_call returns [ASTNode node]:
+	  ID PAO
+  	  {
+  	  	List<Object> parameters = new ArrayList<Object>();
+	  }
+	  (((expression {parameters.add($expression.node);})?)((COMMA (expression{parameters.add($expression.node);}))*))
+	  PAC
+	  {
+		$node = new Call_func($ID.text, parameters);		
+	  }
+; 
+
 log_op returns [ASTNode node]:
-//	t1=booleanify OR t2=booleanify {$node = new Or($t1.node, $t2.node);}|
-//	t1=booleanify AND t2=booleanify {$node = new And($t1.node, $t2.node);}|
-//	NOT booleanify {$node = new Not($booleanify.node);}|
-//	booleanify {$node = $booleanify.node;}
+	(t1=booleanify AND t2=booleanify {$node = new And($t1.node, $t2.node);})+ |
+	(t1=booleanify OR t2=booleanify {$node = new Or($t1.node, $t2.node);})+|
+	(NOT booleanify {$node = new Not($booleanify.node);})+ |
+	booleanify {$node = new Bool($booleanify.node);}
 ;
 	
-
 booleanify returns [ASTNode node]:
 	t1=expression LT  t2=expression {$node = new Lt_comp($t1.node, $t2.node);}|
 	t1=expression LOE t2=expression {$node = new Loe_comp($t1.node, $t2.node);}|
 	t1=expression GT  t2=expression {$node = new Gt_comp($t1.node, $t2.node);}|
 	t1=expression GOE t2=expression {$node = new Goe_comp($t1.node, $t2.node);}|
 	t1=expression EQ  t2=expression {$node = new Eq_comp($t1.node, $t2.node);}|
-	t1=expression NEQ t2=expression {$node = new Neq_comp($t1.node, $t2.node);}
+	t1=expression NEQ t2=expression {$node = new Neq_comp($t1.node, $t2.node);}|
+	BOOLEAN {$node = new Constant(Boolean.parseBoolean($BOOLEAN.text));}
 ;
 
 expression returns [ASTNode node]:
@@ -211,7 +261,7 @@ ASSING: '=';
 ID: [a-zA-Z][a-zA-Z0-9]*;
 NUMBER: [0-9]+('.'[0-9]+)*;
 BOOLEAN: ('#t'|'#f');
-STRING: '"'~('"')'"';
+STRING: '"'~('"')*'"';
 
 WS
 :

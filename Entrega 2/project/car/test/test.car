@@ -1,7 +1,31 @@
-let x
-x = 2
-writeln x
-writeln 2+-2
-writeln -(2+2)/2
-writeln (3/2)*8
-writeln -5
+color 255,0,0,255
+let i = 0
+writeln i
+writeln -2
+
+function perro()
+{
+	writeln "Chupalo"
+	let i = 5;
+	writeln "5"
+}
+
+if(!i<5)
+{
+	writeln "sipa"
+}
+else
+{
+	writeln "nope"
+}
+
+
+while(i < 5)
+{
+	writeln i
+	run_forward 100
+	turn_left 45
+	i = i+1
+	perro()
+}
+run_forward 100

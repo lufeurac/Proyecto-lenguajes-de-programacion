@@ -1,7 +1,5 @@
 package co.edu.javeriana.car.ast;
 
-import java.util.Map;
-
 public class Var_decl implements ASTNode {
 
 	private String var_name;
@@ -13,8 +11,8 @@ public class Var_decl implements ASTNode {
 	}
 
 	@Override
-	public Object execute(Map<String, Object> symbol_table) {
-		symbol_table.put(var_name, new Object());
+	public Object execute(Code_block segment) {
+		segment.put(var_name, new Object());
 		return null;
 	}
 

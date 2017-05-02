@@ -2,16 +2,19 @@ package co.edu.javeriana.car.ast;
 
 import java.util.List;
 
-public class If_cond implements ASTNode {
+public class Ife_cond implements ASTNode {
 	private ASTNode condition;
 	private List<ASTNode> body;
+	private List<ASTNode> elseBody;
 	
 	 
-	public If_cond(ASTNode condition, List<ASTNode> body) {
+	public Ife_cond(ASTNode condition, List<ASTNode> body, List<ASTNode> elseBody) {
 		super();
 		this.condition = condition;
 		this.body = body;
+		this.elseBody = elseBody;
 	}
+
 
 	@Override
 	public Object execute(Code_block segment)
@@ -23,6 +26,13 @@ public class If_cond implements ASTNode {
 				n.execute(segment);
 			}
 		} 
+		else 
+		{
+			for (ASTNode n : elseBody)
+			{
+				n.execute(segment);
+			}
+		}
 		return null;
 	}
 
