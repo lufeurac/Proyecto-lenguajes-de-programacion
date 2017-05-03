@@ -41,8 +41,9 @@ start:
 
 sentence returns [ASTNode node]:
 	var_decl {$node = $var_decl.node;} |
-	print_ln {$node = $print_ln.node;}	|
 	var_assign {$node = $var_assign.node;}|
+	print_ln {$node = $print_ln.node;}	|
+	read {$node = $read.node;}	|
 	cmd_color {$node = $cmd_color.node;}|
 	cmd_mf {$node = $cmd_mf.node;}		|
 	cmd_bk {$node = $cmd_bk.node;}		|
@@ -71,6 +72,10 @@ print_ln returns [ASTNode node]:
 		$node = new PrintLn($sentence.node);
 	}
 ; 
+
+read returns [ASTNode node]: 
+	 READ ID {$node = new Read($ID.text);}
+;
 
 cmd_color returns [ASTNode node]: 
 	COLOR r=input COMMA g=input COMMA b=input COMMA a=input

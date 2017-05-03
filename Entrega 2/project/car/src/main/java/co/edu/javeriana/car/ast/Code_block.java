@@ -25,8 +25,8 @@ public class Code_block {
 
 	public Object get(String key) {
 		Object found = null;
-		for (Code_block context = this; context != null; context = context.previous) {
-			found = (Object) (context.symbolTable.get(key));
+		for (Code_block segment = this; segment != null; segment = segment.previous) {
+			found = (Object) (segment.symbolTable.get(key));
 			if (found != null) {
 				return found;
 			}
@@ -44,10 +44,10 @@ public class Code_block {
 
 	public void varAssignment(String key, Object value) {
 		Object found = null;
-		for (Code_block context = this; context != null; context = context.previous) {
-			found = (Object) (context.symbolTable.get(key));
+		for (Code_block segment = this; segment != null; segment = segment.previous) {
+			found = (Object) (segment.symbolTable.get(key));
 			if (found != null) {
-				context.put(key, value);
+				segment.put(key, value);
 				return;
 			}
 		}
@@ -55,8 +55,8 @@ public class Code_block {
 
 	public Object funCall(String key) {
 		Object found = null;
-		for (Code_block context = this; context != null; context = context.previous) {
-			found = (Object) (context.functionTable.get(key));
+		for (Code_block segment = this; segment != null; segment = segment.previous) {
+			found = (Object) (segment.functionTable.get(key));
 			if (found != null) {
 				return found;
 			}

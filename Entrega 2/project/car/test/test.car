@@ -1,31 +1,35 @@
-color 255,0,0,255
-let i = 0
-writeln i
-writeln -2
-
-function perro()
+function moveRotate(angle, dist)
 {
-	writeln "Chupalo"
-	let i = 5;
-	writeln "5"
+turn_right angle
+run_forward dist
 }
-
-if(!i<5)
+function makeHorizontalLine()
 {
-	writeln "sipa"
-}
-else
-{
-	writeln "nope"
-}
-
-
-while(i < 5)
-{
-	writeln i
-	run_forward 100
-	turn_left 45
-	i = i+1
-	perro()
-}
+color 0,0,0,0
+run_forward 50
+turn_left 180
+color 255,255,255,255
 run_forward 100
+turn_left 180
+color 0,0,0,0
+run_forward 50
+}
+let a = 0
+while (a < 3)
+{
+writeln a
+a = a + 1
+}
+if (a==3)
+{
+
+writeln "hola"
+}
+makeHorizontalLine()
+color 255,255,255,255
+turn_right 90
+run_forward 200
+moveRotate(45,50)
+moveRotate(45,50)
+moveRotate(45,50)
+moveRotate(45,50)
