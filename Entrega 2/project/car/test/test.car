@@ -22,7 +22,6 @@ a = a + 1
 }
 if (a==3)
 {
-
 writeln "hola"
 }
 makeHorizontalLine()

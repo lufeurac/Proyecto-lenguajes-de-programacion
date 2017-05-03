@@ -1,19 +1,21 @@
 package co.edu.javeriana.car.ast;
 
-public class Loe_comp implements ASTNode {
+public class Loe_comp implements ASTNode
+{
 
-	private ASTNode termino1;
-	private ASTNode termino2;
-	
-	
-	public Loe_comp(ASTNode termino1, ASTNode termino2) {
-		super();
-		this.termino1 = termino1;
-		this.termino2 = termino2;
-	}
+    private ASTNode termino1;
+    private ASTNode termino2;
 
-	@Override
-	public Object execute(Code_block segment) {
-		return (float)termino1.execute(segment) <= (float)termino2.execute(segment);
-	}
+    public Loe_comp(ASTNode termino1, ASTNode termino2)
+    {
+	super();
+	this.termino1 = termino1;
+	this.termino2 = termino2;
+    }
+
+    @Override
+    public Object execute(Code_block segment)
+    {
+	return (float) termino1.execute(segment) <= (float) termino2.execute(segment);
+    }
 }

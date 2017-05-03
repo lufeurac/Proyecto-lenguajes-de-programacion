@@ -1,20 +1,21 @@
 package co.edu.javeriana.car.ast;
 
-public class And implements ASTNode {
+public class And implements ASTNode
+{
 
-	private ASTNode operation_A;
-	private ASTNode operation_B;
-	
-	public And(ASTNode operation_A, ASTNode operation_B) {
-		super();
-		this.operation_A = operation_A;
-		this.operation_B = operation_B;
-	}
+    private ASTNode operation_A;
+    private ASTNode operation_B;
 
-	public Object execute(Code_block segment) 
-	{
-		return (boolean)operation_A.execute(segment) && 
-			   (boolean)operation_B.execute(segment);
-	}
+    public And(ASTNode operation_A, ASTNode operation_B)
+    {
+	super();
+	this.operation_A = operation_A;
+	this.operation_B = operation_B;
+    }
+
+    public Object execute(Code_block segment)
+    {
+	return (boolean) operation_A.execute(segment) && (boolean) operation_B.execute(segment);
+    }
 
 }
